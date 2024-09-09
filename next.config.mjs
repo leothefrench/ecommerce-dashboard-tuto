@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'ih1.redbubble.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'cloudflare-ipfs.com',
+      },
     ],
   },
 };
