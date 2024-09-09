@@ -45,7 +45,7 @@ const chartConfig = {
 export function HorizontalGraph() {
   return (
     <AnalyticsCard title='Traffic Bar Chart' subTitle='Sowing visitors from different countries'>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer config={chartConfig} className='mx-auto aspect-square w-full max(h-[400px] mt-10'>
           <BarChart
             accessibilityLayer
             data={chartData}
