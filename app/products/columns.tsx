@@ -1,41 +1,40 @@
-'use client'
-import Image from 'next/image'
-import { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
+'use client';
+
+import Image from 'next/image';
+import { ColumnDef } from '@tanstack/react-table';
+import { MoreHorizontal } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-export type Customers = {
-  id: string;
+export type Products = {
+  id: string | number;
   name: string;
-  email: string;
-  orders: number;
+  price: number;
+  revenue: number;
   image: string;
 };
 
-export const columns: ColumnDef<Customers>[] = [
+export const columns: ColumnDef<Products>[] = [
   {
     accessorKey: 'name',
     header: 'Name',
   },
   {
-    accessorKey: 'orders',
-    header: 'Orders',
+    accessorKey: 'price',
+    header: 'Price',
   },
   {
     accessorKey: 'image',
     header: 'Image',
     cell: ({ row }) => {
       const imageUrl = row.getValue('image') as string;
-      // console.log('Image URL:', imageUrl)
+    //   console.log('Image URL:', imageUrl)
 
       return (
         <Image
@@ -62,10 +61,8 @@ export const columns: ColumnDef<Customers>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>
-                Edit Customer
-            </DropdownMenuItem>
-            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem>Edit Product</DropdownMenuItem>
+            <DropdownMenuItem>Delete Product</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

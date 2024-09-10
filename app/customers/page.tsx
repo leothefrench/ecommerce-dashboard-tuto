@@ -17,7 +17,7 @@ export default async function page() {
     const data = await getCustomers()
 
     return (
-      <section className="p-6">
+      <div className="p-6">
         <AnalyticsCard
           title="Customers"
           subTitle="Showing all customers with orders"
@@ -25,6 +25,6 @@ export default async function page() {
           <Button className="mb-3">Add New Customer</Button>
           <DataTable columns={columns} data={data} />
         </AnalyticsCard>
-      </section>
+      </div>
     );
 }
