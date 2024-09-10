@@ -22,7 +22,7 @@ export default async function page() {
           title="Customers"
           subTitle="Showing all customers with orders"
         >
-          <Button className="mb-3">Add NeW Customer</Button>
+          <Button className="mb-3">Add New Customer</Button>
           <DataTable columns={columns} data={data} />
         </AnalyticsCard>
       </section>
