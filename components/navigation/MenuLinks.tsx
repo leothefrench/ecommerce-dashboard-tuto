@@ -27,7 +27,7 @@ export const MenuLinks = ({isOpen}:{isOpen: boolean}) => {
     },
     inactive: {
       backgroundColor: 'rgba(0, 0, 0, 0)',
-      color: 'rgb(248, 250, 252)',
+      color: "inherit",
       scale: 1,
     },
   };

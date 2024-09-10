@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { formatPrice } from '@/utils/formatPrice';
 
 export type Products = {
   id: string | number;
@@ -28,13 +29,18 @@ export const columns: ColumnDef<Products>[] = [
   {
     accessorKey: 'price',
     header: 'Price',
+    cell: ({ row }) => {
+      const totalPrice = row.getValue('price') as number;
+
+      return <span>{formatPrice(totalPrice)}</span>;
+    },
   },
   {
     accessorKey: 'image',
     header: 'Image',
     cell: ({ row }) => {
       const imageUrl = row.getValue('image') as string;
-    //   console.log('Image URL:', imageUrl)
+      //   console.log('Image URL:', imageUrl)
 
       return (
         <Image

@@ -3,6 +3,8 @@
 import { ColumnDef } from '@tanstack/react-table';
 import { MoreHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { formatPrice } from '@/utils/formatPrice';
+import { formatDate } from '@/utils/formatDate';
 
 import {
   DropdownMenu,
@@ -26,10 +28,21 @@ export const columns: ColumnDef<Orders>[] = [
   {
     accessorKey: 'totalAmount',
     header: 'Total Amount',
+    cell: ({ row }) => {
+      const totalAmount = row.getValue('totalAmount') as number;
+
+      return <span>{formatPrice(totalAmount)}</span>;
+    },
   },
   {
     accessorKey: 'date',
     header: 'Date',
+    cell: ({ row }) => {
+      const dateTimeStamp = row.getValue('date') as number;
+      const dateObject = new Date(dateTimeStamp);
+
+      return <span className="text-nowrap">{formatDate(dateObject)}</span>;
+    },
   },
   {
     id: 'actions',
